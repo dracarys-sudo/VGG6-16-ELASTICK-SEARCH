@@ -1,0 +1,67 @@
+<!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>VGG- Project</title>
+            <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../static/fontawesome/css/all.min.css">
+            <link rel="stylesheet" href="../static/css/templatemo-style.css">
+        
+        </head>
+    <body>
+            <!-- Page Loader -->
+            <div id="loader-wrapper">
+                <div id="loader"></div>
+        
+                <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+        
+            </div>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <i class="fas fa-film mr-2"></i>
+                        Search Engine 
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        
+            <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="../static/hero.jpg">
+                    <form method="POST" enctype="multipart/form-data"class="d-flex tm-search-form">
+                    <input class="form-control tm-search-input" type="file"  name= "query_img" >
+                    <input type="submit" class="btn-primary">
+                
+            </div>
+            <h2>Query:</h2>
+            {% if query_path %}
+            <img src="{{ query_path }}" width="300px">
+            {% endif %}
+            <h2>Results:</h2>
+            {% for score in scores %}
+            <figure style="float: left; margin-right: 20px; margin-bottom: 20px;">
+                <img src="{{ score[1] }}" height="200px">
+            </figure>
+            {% endfor %}
+
+            
+            <script src="../static/js/plugins.js"></script>
+            <script>
+                $(window).on("load", function() {
+                    $('body').addClass('loaded');
+                });
+            </script>
+
+        </div>
+    </body>
+    <div class="Footer">
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-light text-blue-50 ">
+        <div class="container text-center">
+          <small>Copyright &copy;</small>
+        </div>
+      </footer>
+    </div>
+</html>
